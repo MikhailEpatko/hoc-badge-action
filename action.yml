@@ -1,0 +1,42 @@
+name: 'Hits of Code Bage'
+description: 'Count hits of code and render a badge for display result'
+inputs:
+  before:
+    description: 'Set the end date of hoc (YYYY-MM-DD). Default: now day'
+    required: false
+    default: '[]'
+  dir:
+    description: 'Directory to scan. Default: current directory'
+    required: false
+    default: '.'
+  exclude:
+    description: 'Glob pattern to exclude files/dirs, e.g. "vendor/**". No default value'
+    required: false
+    default: '[]'
+  since:
+    description: 'Set the start date of hoc (YYYY-MM-DD). Default: 2000-01-01'
+    required: false
+    default: '2000-01-01'
+runs:
+  using: "composite"
+  steps:
+    - uses: actions/checkout@v4
+    - uses: actions/setup-ruby@v1
+      with:
+        ruby-version: '3.3.0'
+    - name: Generate badge
+      run: $GITHUB_ACTION_PATH/generate-badge.sh $BEFORE $DIR $EXCLUDE $SINCE
+      shell: bash
+      env:
+        BEFORE:   ${{ inputs.before }}
+        DIR:      ${{ inputs.dir }}
+        EXCLUDE:  ${{ inputs.exclude }}
+        SINCE:    ${{ inputs.since }}
+
+    - name: Deploy to image-data branch
+      uses: peaceiris/actions-gh-pages@v3
+      with:
+        publish_dir: ./output
+        publish_branch: image-data
+        github_token: ${{ github.token }}
+
