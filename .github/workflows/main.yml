@@ -1,13 +1,21 @@
 on: [push]
 
 jobs:
-  lines_counter_job:
+  hits_counter_job:
     runs-on: ubuntu-latest
     name: A job to count hits of code
     steps:
+
       - uses: actions/checkout@v4
       - id: badge-generator
         uses: ./
         with:
           dir: '.'
           since: '2000-01-01'
+
+      - name: Deploy to image-data branch
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          publish_dir: ./output
+          publish_branch: image-data
+          github_token: ${{ github.token }}

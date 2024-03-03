@@ -36,11 +36,3 @@ runs:
         DIR:      ${{ inputs.dir }}
         EXCLUDE:  ${{ inputs.exclude }}
         SINCE:    ${{ inputs.since }}
-
-    - name: Deploy to image-data branch
-      uses: peaceiris/actions-gh-pages@v3
-      with:
-        publish_dir: ./output
-        publish_branch: image-data
-        github_token: ${{ github.token }}
-
