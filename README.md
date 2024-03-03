@@ -2,7 +2,7 @@
 ![Hits-of-Code Badge](https://github.com/MikhailEpatko/hits-of-code-badge/blob/image-data/hits.svg)
 
 
-GitHub action with hoc.
+GitHub action to generate Hits-of-Code badge with hoc calculated metric.
 
 **hoc** - is a command line tool to calculate Hits-of-Code metric in a source code repository (at the moment it supports Git 2+ and Subversion 1.7+). 
  You can read more about Hits-of-Code metric in this blog post: [Hits-of-Code Instead of SLoC](http://www.yegor256.com/2014/11/14/hits-of-code.html).
