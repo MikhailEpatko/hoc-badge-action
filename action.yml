@@ -25,7 +25,11 @@ runs:
       with:
         ruby-version: '3.3.0'
     - name: Generate badge
-      run: $GITHUB_ACTION_PATH/generate-badge.sh $BEFORE $DIR $EXCLUDE $SINCE
+      run: |
+        gem install hoc
+        pip install anybadge
+        mkdir ./output
+        $GITHUB_ACTION_PATH/generate-badge.sh $BEFORE $DIR $EXCLUDE $SINCE
       shell: bash
       env:
         BEFORE:   ${{ inputs.before }}

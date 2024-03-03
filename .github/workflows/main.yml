@@ -3,7 +3,7 @@ on: [push]
 jobs:
   lines_counter_job:
     runs-on: ubuntu-latest
-    name: A job to count lines of code
+    name: A job to count hits of code
     steps:
       - uses: actions/checkout@v4
       - id: badge-generator
