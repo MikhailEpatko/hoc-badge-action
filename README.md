@@ -1,4 +1,5 @@
-# hits-of-code-badge ![Hits-of-Code Badge](https://github.com/MikhailEpatko/code-lines-counter-action/blob/image-data/hits.svg)
+# hits-of-code-badge 
+![Hits-of-Code Badge](https://github.com/MikhailEpatko/hits-of-code-badge/blob/image-data/hits.svg)
 
 
 GitHub action with hoc.
