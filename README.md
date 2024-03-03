@@ -29,4 +29,4 @@ jobs:
           since: '2000-01-01'     # default value - '2000-01-01'
 ```
 
-The badge will be generated in **image-data** branch of your repository. For this you need to configure [Setting the permissions of the GITHUB_TOKEN for your repository](https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-github-actions-settings-for-a-repository#setting-the-permissions-of-the-github_token-for-your-repository).
+The badge will be generated in ./output/hits.svg file. Use whatever tool you prefer to upload it somewhere.
