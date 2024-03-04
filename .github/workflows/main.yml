@@ -10,8 +10,10 @@ jobs:
       - id: badge-generator
         uses: ./
         with:
-          dir: '.'
-          since: '2000-01-01'
+          dir: .
+          since: 2000-01-01
+          output_dir: ./output
+          filename: hits.svg
 
       - name: Deploy to image-data branch
         uses: peaceiris/actions-gh-pages@v3.9.3

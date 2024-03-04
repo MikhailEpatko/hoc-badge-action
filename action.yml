@@ -17,6 +17,15 @@ inputs:
     description: 'Set the start date of hoc (YYYY-MM-DD). Default: 2000-01-01'
     required: false
     default: '2000-01-01'
+  output_dir:
+    description: 'Output directory. Default: ./output'
+    required: false
+    default: './output'
+  filename:
+    description: 'Output filename. Default: hoc-badge.svg'
+    required: false
+    default: 'hoc-badge.svg'
+
 runs:
   using: "composite"
   steps:
@@ -29,10 +38,13 @@ runs:
         gem install hoc
         pip install anybadge
         mkdir ./output
-        $GITHUB_ACTION_PATH/generate-badge.sh $BEFORE $DIR $EXCLUDE $SINCE
+        $GITHUB_ACTION_PATH/generate-badge.sh $BEFORE $DIR $EXCLUDE $SINCE $OUTPUT_DIR $FILENAME
       shell: bash
       env:
         BEFORE:   ${{ inputs.before }}
         DIR:      ${{ inputs.dir }}
         EXCLUDE:  ${{ inputs.exclude }}
         SINCE:    ${{ inputs.since }}
+        OUTPUT_DIR:    ${{ inputs.output_dir }}
+        FILENAME:    ${{ inputs.filename }}
+
