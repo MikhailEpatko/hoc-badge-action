@@ -1,5 +1,5 @@
 # hoc-badge-action 
-![Hits-of-Code Badge](https://github.com/MikhailEpatko/hits-of-code-badge/blob/image-data/hits.svg)
+![Hits-of-Code Badge](https://github.com/MikhailEpatko/hoc-badge-action/blob/image-data/hoc-badge.svg)
 
 
 GitHub action to generate Hits-of-Code badge with hoc calculated metric.
@@ -28,10 +28,10 @@ jobs:
           dir: .                     # default value - include all files
           exclude: vendor/**         # no default value 
           since: 2000-01-01          # default value - '2000-01-01'
-          output_dir: ./output       # default value - './output'
+          output_dir: ./output       # default value - 'output'
           filename: hoc-badge.svg    # default value - 'hoc-badge.svg'
 ```
 
-The badge will be generated into file ./output/hoc-badge.svg by default.
+The badge will be generated into the file ./output/hoc-badge.svg by default.
 
 Use whatever tool you prefer to upload it somewhere.

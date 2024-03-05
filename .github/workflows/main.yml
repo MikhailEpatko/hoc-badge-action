@@ -18,10 +18,9 @@ jobs:
         with:
           dir: .
           since: 2000-01-01
-          output_dir: ./output-dir
-#          filename: hits.svg
+          output_dir: output-dir
       - uses: peaceiris/actions-gh-pages@v3.9.3
         with:
-          publish_dir: ./output-dir
+          publish_dir: output-dir
           publish_branch: image-data
           github_token: ${{ github.token }}
