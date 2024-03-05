@@ -2,12 +2,13 @@ on: [push]
 
 jobs:
 
-  shellcheck:
+  tests_job:
     name: Shellcheck
     runs-on: ubuntu-22.04
     steps:
       - uses: actions/checkout@v4
       - uses: ludeeus/action-shellcheck@master
+      - uses: articulate/actions-markdownlint@v1.1.0
 
   hits_counter_job:
     name: Generate and deploy HoC-badge

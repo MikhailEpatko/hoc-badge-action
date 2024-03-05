@@ -9,7 +9,7 @@ Filename=$6
 
 gem install hoc
 pip install anybadge
-mkdir "$OutDir"
+mkdir -p "$OutDir"
 
 Count=$(hoc -d "$Dir" -e "$Exclude" -s "$Since" -b "$Before" -f "int")
 echo "Hits of code: $Count"
