@@ -18,9 +18,9 @@ inputs:
     required: false
     default: '2000-01-01'
   output_dir:
-    description: 'Output directory. Default: ./output'
+    description: 'Output directory. Default: output'
     required: false
-    default: './output'
+    default: 'output'
   filename:
     description: 'Output filename. Default: hoc-badge.svg'
     required: false
