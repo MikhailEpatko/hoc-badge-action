@@ -1,22 +1,26 @@
 on: [push]
 
 jobs:
-  hits_counter_job:
-    runs-on: ubuntu-latest
-    name: A job to count hits of code
-    steps:
 
+  shellcheck:
+    name: Shellcheck
+    runs-on: ubuntu-22.04
+    steps:
       - uses: actions/checkout@v4
-      - id: badge-generator
-        uses: ./
+      - uses: ludeeus/action-shellcheck@master
+
+  hits_counter_job:
+    name: Generate and deploy HoC-badge
+    runs-on: ubuntu-22.04
+    steps:
+      - uses: actions/checkout@v4
+      - uses: ./
         with:
           dir: .
           since: 2000-01-01
           output_dir: ./output
           filename: hits.svg
-
-      - name: Deploy to image-data branch
-        uses: peaceiris/actions-gh-pages@v3.9.3
+      - uses: peaceiris/actions-gh-pages@v3.9.3
         with:
           publish_dir: ./output
           publish_branch: image-data
