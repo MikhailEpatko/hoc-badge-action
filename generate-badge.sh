@@ -7,6 +7,10 @@ Since=$4
 OutDir=$5
 Filename=$6
 
+gem install hoc
+pip install anybadge
+mkdir "$OutDir"
+
 Count=$(hoc -d "$Dir" -e "$Exclude" -s "$Since" -b "$Before" -f "int")
 echo "Hits of code: $Count"
 
