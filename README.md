@@ -1,4 +1,4 @@
-# hits-of-code-badge 
+# hoc-badge-action 
 ![Hits-of-Code Badge](https://github.com/MikhailEpatko/hits-of-code-badge/blob/image-data/hits.svg)
 
 
