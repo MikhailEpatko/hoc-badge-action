@@ -12,10 +12,10 @@ You can read more about Hits-of-Code metric in this blog post:
 
 [**hoc** project page](https://github.com/yegor256/hoc/tree/master)
 
-To install action copy the workflow code into 
+To install action copy the workflow code into
 a .github/workflows/main.yml file in your repository
 
-```
+```yaml
 on: [push]
 
 jobs:
