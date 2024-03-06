@@ -12,6 +12,7 @@ inputs:
   exclude:
     description: 'Glob pattern to exclude files/dirs, e.g. "vendor/**". No default value'
     required: false
+    default: '[]'
   since:
     description: 'Set the start date of hoc (YYYY-MM-DD). Default: 2000-01-01'
     required: false
