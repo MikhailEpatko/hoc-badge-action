@@ -10,7 +10,7 @@ while getopts 'b:d:e:f:o:s:' opt; do
       Dir="$OPTARG"
       ;;
     e)
-      Exclude="$OPTARG"
+      Excld="$OPTARG"
       ;;
     f)
       Filename="$OPTARG"
@@ -33,6 +33,7 @@ while getopts 'b:d:e:f:o:s:' opt; do
 done
 
 if [ "$Before" == '[]' ]; then Before="$(date +%F)"; fi
+if [ "$Excld" != '[]' ]; then Exclude="$Excld"; fi
 
 echo "$Dir ${Exclude[*]} $Since $Before"
 

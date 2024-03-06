@@ -41,7 +41,8 @@ runs:
         -d $DIR \
         -s $SINCE \
         -o $OUTPUT_DIR \
-        -f $FILENAME  ${$EXCLUDE:+"-e ${$EXCLUDE[@]}"}
+        -f $FILENAME \
+        -e $EXCLUDE
       shell: bash
       env:
         BEFORE:   ${{ inputs.before }}
