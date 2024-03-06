@@ -42,7 +42,7 @@ runs:
         -s $SINCE \
         -o $OUTPUT_DIR \
         -f $FILENAME \
-        ${$EXCLUDE:+"-e" "${$EXCLUDE[@]}"}
+        ${$EXCLUDE:+"-e ${$EXCLUDE[@]}"}
       shell: bash
       env:
         BEFORE:   ${{ inputs.before }}
