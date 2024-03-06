@@ -3,7 +3,7 @@ on: [push]
 jobs:
 
   tests_job:
-    name: Shellcheck
+    name: Test scripts
     runs-on: ubuntu-22.04
     steps:
       - uses: actions/checkout@v4

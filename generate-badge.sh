@@ -22,11 +22,11 @@ while getopts 'b:d:e:f:o:s:' opt; do
       Since="$OPTARG"
       ;;
     :)
-      echo "Usage: $(basename $0) [-b Before] [-d Dir] [-e Exclude] [-f Filename] [-o OutputDir] [-s Since]"
+      echo "Usage: $(basename "$0") [-b Before] [-d Dir] [-e Exclude] [-f Filename] [-o OutputDir] [-s Since]"
       exit 1
       ;;
     ?)
-      echo "Usage: $(basename $0) [-b Before] [-d Dir] [-e Exclude] [-f Filename] [-o OutputDir] [-s Since]"
+      echo "Usage: $(basename "$0") [-b Before] [-d Dir] [-e Exclude] [-f Filename] [-o OutputDir] [-s Since]"
       exit 1
       ;;
   esac
