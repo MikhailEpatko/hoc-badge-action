@@ -40,7 +40,6 @@ echo "$Dir ${Exclude[*]} $Since $Before"
 mkdir -p "$OutDir"
 
 Count=$(hoc -d "$Dir" ${Exclude:+"-e ${Exclude[@]}"} -e "${Exclude[@]}" -s "$Since" -b "$Before" -f "int")
-#Count=$(hoc -d "$Dir" ${Exclude:+"-e ${Exclude[@]}"} -e "${Exclude[@]}" -s "$Since" -b "$Before" -f "int")
 echo "Hits of code: $Count"
 
 anybadge -l "Hits of Code" -v "$Count" -f "$OutDir/$Filename" -c royalblue
