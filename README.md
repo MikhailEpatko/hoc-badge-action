@@ -25,14 +25,17 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - id: badge-generator
-        uses: ./                     # write the action name instead
+        uses: ./                     # Write the action name instead.
         with:
-          before: 2024-03-03'        # default value - now day
-          dir: .                     # default value - include all files
-          exclude: vendor/**         # no default value 
-          since: 2000-01-01          # default value - '2000-01-01'
-          output_dir: ./output       # default value - 'output'
-          filename: hoc-badge.svg    # default value - 'hoc-badge.svg'
+          since: 2000-01-01          # Default value: '2000-01-01'.
+          before: 2024-03-03'        # Default value: now day.
+          dir: .                     # Default value: include all files in the current directory.
+          exclude: |-                # We can use multiline strings if we want something close to multiline values.
+           dir1/**                  ## It's an important detail that we used '|-' in the YAML and not '|'.
+           dir2/**/*                ## There is no default value for exclude option.
+           dir3/file.txt
+          output_dir: ./output       # Default value: './output'.
+          filename: hoc-badge.svg    # Default value: 'hoc-badge.svg'.
 ```
 
 The badge will be generated into the file ./output/hoc-badge.svg by default.

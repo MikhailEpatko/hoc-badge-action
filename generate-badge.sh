@@ -33,13 +33,18 @@ while getopts 'b:d:e:f:o:s:' opt; do
 done
 
 if [ "$Before" == '[]' ]; then Before="$(date +%F)"; fi
-if [ "$Excld" != '[]' ]; then Exclude="$Excld"; fi
+if [ "$Excld" != '[]' ]; then
+  IFS=$'\n' read -rd '' -a array <<< "$Excld"
+  for word in "${array[@]}"; do
+    Exclude="${Exclude} -e $word"
+  done
+fi
 
 echo "$Dir ${Exclude[*]} $Since $Before"
 
 mkdir -p "$OutDir"
 
-Count=$(hoc -d "$Dir" ${Exclude:+"-e ${Exclude[@]}"} -e "${Exclude[@]}" -s "$Since" -b "$Before" -f "int")
+Count=$(hoc -d "$Dir" ${Exclude:+${Exclude[@]}} -s "$Since" -b "$Before" -f "int")
 echo "Hits of code: $Count"
 
 anybadge -l "Hits of Code" -v "$Count" -f "$OutDir/$Filename" -c royalblue
