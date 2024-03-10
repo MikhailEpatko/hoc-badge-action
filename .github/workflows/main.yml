@@ -20,9 +20,6 @@ jobs:
           dir: .
           since: 2000-01-01
           output_dir: output-dir
-          exclude: |-
-            .gitignore
-            LICENSE
       - uses: peaceiris/actions-gh-pages@v3.9.3
         with:
           publish_dir: output-dir

@@ -30,10 +30,13 @@ jobs:
           since: 2000-01-01          # Default value: '2000-01-01'.
           before: 2024-03-03'        # Default value: now day.
           dir: .                     # Default value: include all files in the current directory.
-          exclude: |-                # We can use multiline strings if we want something close to multiline values.
-           dir1/**                  ## It's an important detail that we used '|-' in the YAML and not '|'.
-           dir2/**/*                ## There is no default value for exclude option.
-           dir3/file.txt
+          # For exclude option we can use multiline strings if we want to pass multiple values.
+          # In this case it's an important detail that we used '|' or '|-' in the YAML. 
+          # There is no default value for exclude option. 
+          exclude: |                 
+           dir1/**                   
+           dir2/**/*                 
+           dir3/file.txt             
           output_dir: ./output       # Default value: './output'.
           filename: hoc-badge.svg    # Default value: 'hoc-badge.svg'.
 ```
