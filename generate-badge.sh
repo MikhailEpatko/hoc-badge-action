@@ -34,6 +34,8 @@ done
 
 if [ "$Before" == '[]' ]; then Before="$(date +%F)"; fi
 if [ "$Excld" != '[]' ]; then
+  echo "$Excld"
+
   IFS=$'\n' read -rd '' -a array <<< "$Excld"
   for word in "${array[@]}"; do
     Exclude="${Exclude} -e $word"
