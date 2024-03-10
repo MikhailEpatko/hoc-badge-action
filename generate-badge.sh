@@ -40,8 +40,6 @@ if [ "$Excld" != '[]' ]; then
   done
 fi
 
-echo "$Dir ${Exclude[*]} $Since $Before"
-
 mkdir -p "$OutDir"
 
 Count=$(hoc -d "$Dir" ${Exclude:+${Exclude[@]}} -s "$Since" -b "$Before" -f "int")
