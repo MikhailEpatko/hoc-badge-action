@@ -39,6 +39,7 @@ runs:
       run: |
         gem install hoc
         pip install anybadge
+        echo "*********** $EXCLUDE ***********"
         $GITHUB_ACTION_PATH/generate-badge.sh \
         -b $BEFORE \
         -d $DIR \
