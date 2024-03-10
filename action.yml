@@ -46,7 +46,7 @@ runs:
         -s $SINCE \
         -o $OUTPUT_DIR \
         -f $FILENAME \
-        -e $EXCLUDE
+        -e "$EXCLUDE"
       shell: bash
       env:
         BEFORE:   ${{ inputs.before }}
