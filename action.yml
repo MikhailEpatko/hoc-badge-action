@@ -40,18 +40,18 @@ runs:
         gem install hoc
         pip install anybadge
         $GITHUB_ACTION_PATH/generate-badge.sh \
-        -b $BEFORE \
-        -d $DIR \
-        -s $SINCE \
-        -o $OUTPUT_DIR \
-        -f $FILENAME \
-        -e $EXCLUDE
+          -b "$BEFORE" \
+          -d "$DIR" \
+          -s "$SINCE" \
+          -o "$OUTPUT_DIR" \
+          -f "$FILENAME" \
+          -e "$EXCLUDE"
       shell: bash
       env:
-        BEFORE:   ${{ inputs.before }}
-        DIR:      ${{ inputs.dir }}
-        EXCLUDE:  ${{ inputs.exclude }}
-        SINCE:    ${{ inputs.since }}
-        OUTPUT_DIR:    ${{ inputs.output_dir }}
+        BEFORE:      ${{ inputs.before }}
+        DIR:         ${{ inputs.dir }}
+        EXCLUDE:     ${{ inputs.exclude }}
+        SINCE:       ${{ inputs.since }}
+        OUTPUT_DIR:  ${{ inputs.output_dir }}
         FILENAME:    ${{ inputs.filename }}
 
