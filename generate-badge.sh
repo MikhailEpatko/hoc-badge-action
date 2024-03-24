@@ -1,6 +1,6 @@
 #!/bin/bash
 
-while getopts 'b:d:e:f:o:s:' opt; do
+while getopts 'b:d:e:f:o:s:r:' opt; do
   case "$opt" in
     b)
       Before="$OPTARG"
@@ -21,6 +21,9 @@ while getopts 'b:d:e:f:o:s:' opt; do
     s)
       Since="$OPTARG"
       ;;
+    r)
+      Rounding="$OPTARG"
+      ;;
     :)
       echo "Usage: $(basename "$0") [-b Before] [-d Dir] [-e Exclude] [-f Filename] [-o OutputDir] [-s Since]"
       exit 1
@@ -39,9 +42,16 @@ if [ "$Excld" != '[]' ]; then
   done
 fi
 
-mkdir -p "$OutDir"
-
 Count=$(hoc -d "$Dir" ${Exclude:+${Exclude[@]}} -s "$Since" -b "$Before" -f "int")
 echo "Hits of code: $Count"
 
-anybadge -l "Hits of Code" -v "$Count" -f "$OutDir/$Filename" -c royalblue
+if   [ "$Rounding" == "K" ]; then Count="$(python -c "print(round($Count/1000, 1))")K"
+elif [ "$Rounding" == "M" ]; then Count="$(python -c "print(round($Count/1000000, 1))")M"
+elif [ "$Rounding" == "G" ]; then Count="$(python -c "print(round($Count/1000000000, 1))")G"
+else Count=$(python -c "print(format($Count, ',d'))")
+fi
+
+echo "Hits of code: $Count"
+
+mkdir -p "$OutDir"
+anybadge -l "Hits of Code" -v "$Count" -f "$OutDir/$Filename" -o -c royalblue
