@@ -29,6 +29,10 @@ inputs:
     description: 'Rounding mode. Default: I'
     required: false
     default: 'I'
+  color:
+    description: 'Background color. Default: green'
+    required: false
+    default: 'green'
 
 runs:
   using: "composite"
@@ -45,19 +49,21 @@ runs:
         pip install anybadge
         $GITHUB_ACTION_PATH/generate-badge.sh \
           -b "$BEFORE" \
+          -c "$COLOR" \
           -d "$DIR" \
-          -s "$SINCE" \
-          -o "$OUTPUT_DIR" \
-          -f "$FILENAME" \
           -e "$EXCLUDE" \
-          -r "$ROUNDING"
+          -f "$FILENAME" \
+          -o "$OUTPUT_DIR" \
+          -r "$ROUNDING" \
+          -s "$SINCE"
       shell: bash
       env:
         BEFORE:      ${{ inputs.before }}
+        COLOR:       ${{ inputs.color }}
         DIR:         ${{ inputs.dir }}
         EXCLUDE:     ${{ inputs.exclude }}
-        SINCE:       ${{ inputs.since }}
-        OUTPUT_DIR:  ${{ inputs.output_dir }}
         FILENAME:    ${{ inputs.filename }}
+        OUTPUT_DIR:  ${{ inputs.output_dir }}
         ROUNDING:    ${{ inputs.rounding }}
+        SINCE:       ${{ inputs.since }}
 
