@@ -1,10 +1,13 @@
 #!/bin/bash
 
-while getopts 'b:d:e:f:o:s:r:' opt; do
+while getopts 'b:c:d:e:f:o:r:s:' opt; do
   case "$opt" in
     b)
       Before="$OPTARG"
       if [ "$Before" == '[]' ]; then Before="$(date +%F)"; else Before=$1; fi
+      ;;
+    c)
+      Color="$OPTARG"
       ;;
     d)
       Dir="$OPTARG"
@@ -18,11 +21,11 @@ while getopts 'b:d:e:f:o:s:r:' opt; do
     o)
       OutDir="$OPTARG"
       ;;
-    s)
-      Since="$OPTARG"
-      ;;
     r)
       Rounding="$OPTARG"
+      ;;
+    s)
+      Since="$OPTARG"
       ;;
     :)
       echo "Usage: $(basename "$0") [-b Before] [-d Dir] [-e Exclude] [-f Filename] [-o OutputDir] [-s Since]"
@@ -54,4 +57,4 @@ fi
 echo "Hits of code: $Count"
 
 mkdir -p "$OutDir"
-anybadge -l "Hits of Code" -v "$Count" -f "$OutDir/$Filename" -o -c royalblue
+anybadge -l "Hits of Code" -v "$Count" -f "$OutDir/$Filename" -o -c "$Color"

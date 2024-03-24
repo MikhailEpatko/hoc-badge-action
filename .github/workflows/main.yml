@@ -21,6 +21,7 @@ jobs:
           since: 2000-01-01
           output_dir: output-dir
           rounding: K
+          color: darkgreen
       - uses: peaceiris/actions-gh-pages@v3.9.3
         with:
           publish_dir: output-dir

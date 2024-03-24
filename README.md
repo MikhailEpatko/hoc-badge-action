@@ -40,14 +40,13 @@ jobs:
       output_dir: ./output       # Default value: './output'.
       filename: hoc-badge.svg    # Default value: 'hoc-badge.svg'
       # Rounding mode:
-      #  I - integers (default)
+      #  I - integers
       #  K - up to thousands
       #  M - up to millions
       #  G - up to billions
-      rounding:
-       description: 'Rounding mode. Default: I'
-       required: false
-       default: 'I'
+      rounding: I                # Default value: 'I'
+      # Available colors: https://pypi.org/project/anybadge/
+      color: green               # Default value: 'green'
 ```
 
 The badge will be generated into the file ./output/hoc-badge.svg by default.
