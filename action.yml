@@ -25,6 +25,10 @@ inputs:
     description: 'Output filename. Default: hoc-badge.svg'
     required: false
     default: 'hoc-badge.svg'
+  rounding:
+    description: 'Rounding mode. Default: I'
+    required: false
+    default: 'I'
 
 runs:
   using: "composite"
@@ -45,7 +49,8 @@ runs:
           -s "$SINCE" \
           -o "$OUTPUT_DIR" \
           -f "$FILENAME" \
-          -e "$EXCLUDE"
+          -e "$EXCLUDE" \
+          -r "$ROUNDING"
       shell: bash
       env:
         BEFORE:      ${{ inputs.before }}
@@ -54,4 +59,5 @@ runs:
         SINCE:       ${{ inputs.since }}
         OUTPUT_DIR:  ${{ inputs.output_dir }}
         FILENAME:    ${{ inputs.filename }}
+        ROUNDING:    ${{ inputs.rounding }}
 
