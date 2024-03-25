@@ -41,9 +41,9 @@ jobs:
       filename: hoc-badge.svg    # Default value: 'hoc-badge.svg'
       # Rounding mode:
       #  I - integers
-      #  K - up to thousands
-      #  M - up to millions
-      #  G - up to billions
+      #  K - round up to thousands
+      #  M - round up to millions
+      #  G - round up to billions
       rounding: I                # Default value: 'I'
       # Available colors: https://pypi.org/project/anybadge/
       color: green               # Default value: 'green'
