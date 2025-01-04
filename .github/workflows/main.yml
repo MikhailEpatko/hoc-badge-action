@@ -4,7 +4,7 @@ jobs:
 
   tests_job:
     name: Test scripts
-    runs-on: ubuntu-22.04
+    runs-on: ubuntu-24.04
     steps:
       - uses: actions/checkout@v4
       - uses: ludeeus/action-shellcheck@master
@@ -12,7 +12,7 @@ jobs:
 
   hits_counter_job:
     name: Generate and deploy HoC-badge
-    runs-on: ubuntu-22.04
+    runs-on: ubuntu-24.04
     steps:
       - uses: actions/checkout@v4
       - uses: ./
